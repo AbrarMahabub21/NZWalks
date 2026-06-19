@@ -6,7 +6,7 @@ using Project_NZWalks.API.Models.DTO;
 
 namespace Project_NZWalks.API.Controllers
 {
-       // api/Regions
+    // api/Regions
     [Route("api/[controller]")]
     [ApiController]
     public class RegionsController : ControllerBase
@@ -27,12 +27,13 @@ namespace Project_NZWalks.API.Controllers
 
             // DM to DTO mapping
             var regions = new List<RegionDto>();
-            foreach(var region in regionDB)
+            foreach (var region in regionDB)
             {
                 regions.Add(new RegionDto()
                 {
                     Code = region.Code,
-                    Name = region.Name
+                    Name = region.Name,
+                    RegionImageURL = region.RegionImageURL
                 });
             }
 
@@ -40,9 +41,9 @@ namespace Project_NZWalks.API.Controllers
             return Ok(regions);
         }
 
-        
+        // GET BY a SPECIFIC ID
         [HttpGet]
-        [Route("{id:Guid}")]
+        [Route("{id:guid}")]
         public IActionResult getById([FromRoute] Guid id)
         {
             //var region = NZDb.Regions.Find(id);
@@ -50,15 +51,89 @@ namespace Project_NZWalks.API.Controllers
             var region = new RegionDto()
             {
                 Code = regionDB.Code,
-                Name = regionDB.Name
+                Name = regionDB.Name,
+                RegionImageURL = regionDB.RegionImageURL
             };
-            
-            if(region == null)
+
+            if (region == null)
             {
                 return NotFound();
             }
 
             return Ok(region);
+        }
+
+
+        // CREATE A NEW REGION
+        [HttpPost]
+        public IActionResult create([FromBody] AddRegionRequestDto addRegionRequestDto)
+        {
+            //DTO to DM
+            var regionDM = new Region
+            {
+                Code = addRegionRequestDto.Code,
+                Name = addRegionRequestDto.Name,
+                RegionImageURL = addRegionRequestDto.RegionImageURL
+            };
+
+            // DM saved to DB and saved the changes
+            NZDb.Regions.Add(regionDM);
+            NZDb.SaveChanges();
+
+            // Revert to DTO
+            var regionDTO = new RegionDto
+            {
+                Code = regionDM.Code,
+                Name = regionDM.Name,
+                RegionImageURL = regionDM.RegionImageURL
+            };
+
+            return CreatedAtAction(nameof(getById), new { id = regionDM.Id }, regionDTO);
+        }
+
+        //UPDATE A REGION
+        [HttpPut]
+        [Route("{id:guid}")]
+        public IActionResult update([FromRoute] Guid id, [FromBody] UpdateRegionRequestDto updateRegionRequestDto)
+        {
+            var regionDB = NZDb.Regions.FirstOrDefault(x => x.Id == id);
+            if(regionDB == null)
+            {
+                return NotFound();
+            }
+            
+
+            regionDB.Name = updateRegionRequestDto.Name;
+            regionDB.Code = updateRegionRequestDto.Code;
+            regionDB.RegionImageURL = updateRegionRequestDto.RegionImageURL;
+
+            NZDb.SaveChanges();
+
+            var regionDTO = new RegionDto
+            {
+                Code = regionDB.Code,
+                Name = regionDB.Name,
+                RegionImageURL = regionDB.RegionImageURL
+            };
+
+            return Ok(regionDTO);
+        }
+
+        //DELETE A REGION
+        [HttpDelete]
+        [Route("{id:Guid}")]
+        public IActionResult delete([FromRoute] Guid id)
+        {
+            var region = NZDb.Regions.FirstOrDefault(x => x.Id == id);
+            if(region == null)
+            {
+                return NotFound();
+            }
+
+            NZDb.Remove(region);
+            NZDb.SaveChanges();
+
+            return NoContent();
         }
     }
 }

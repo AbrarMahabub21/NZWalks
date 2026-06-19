@@ -11,9 +11,62 @@
   },
   {
     "ContainingType": "Project_NZWalks.API.Controllers.RegionsController",
+    "Method": "create",
+    "RelativePath": "api/Regions",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addRegionRequestDto",
+        "Type": "Project_NZWalks.API.Models.DTO.AddRegionRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Project_NZWalks.API.Controllers.RegionsController",
     "Method": "getById",
     "RelativePath": "api/Regions/{id}",
     "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Project_NZWalks.API.Controllers.RegionsController",
+    "Method": "update",
+    "RelativePath": "api/Regions/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "updateRegionRequestDto",
+        "Type": "Project_NZWalks.API.Models.DTO.UpdateRegionRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Project_NZWalks.API.Controllers.RegionsController",
+    "Method": "delete",
+    "RelativePath": "api/Regions/{id}",
+    "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
