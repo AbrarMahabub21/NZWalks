@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Project_NZWalks.API.Data;
 using Project_NZWalks.API.Models.Domain;
 using Project_NZWalks.API.Models.DTO;
@@ -20,10 +21,10 @@ namespace Project_NZWalks.API.Controllers
         //get All regions
         // GET: http://localhost/portnumber/api/Regions
         [HttpGet]
-        public IActionResult getAll()
+        public async Task<IActionResult> getAll()
         {
             // getting data from DB - domain models
-            var regionDB = NZDb.Regions.ToList();
+            var regionDB = await NZDb.Regions.ToListAsync();
 
             // DM to DTO mapping
             var regions = new List<RegionDto>();
