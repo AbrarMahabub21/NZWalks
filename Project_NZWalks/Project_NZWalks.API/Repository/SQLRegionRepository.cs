@@ -21,34 +21,42 @@ namespace Project_NZWalks.API.Repository
             return regions;
         }
 
-        public async Task<Region> getByIdAsync(Guid id)
+        public async Task<Region?> getByIdAsync(Guid id)
         {
             var region = await NZDb.Regions.FirstOrDefaultAsync(x => x.Id == id);
             return region;
         }
 
-        public async Task<Region> CreateRegion(AddRegionRequestDto addRegion)
+        public async Task<Region> CreateRegion(Region region)
         {
-            var region = new Region
-            {
-                Code = addRegion.Code,
-                Name = addRegion.Name,
-                RegionImageURL = addRegion.RegionImageURL
-            };
-
             await NZDb.Regions.AddAsync(region);
             await NZDb.SaveChangesAsync();
             return region;
         }
 
-        public async Task<Region> UpdateRegion(Guid id, UpdateRegionRequestDto updateRegion)
+        public async Task<Region?> UpdateRegion(Guid id, Region region)
+        {
+            var regionDM = await NZDb.Regions.FirstOrDefaultAsync(x => x.Id == id);
+            if(regionDM == null)
+            {
+                return null;
+            }
+            regionDM.Code = region.Code;
+            regionDM.Name = region.Name;
+            regionDM.RegionImageURL = region.RegionImageURL;
+
+            await NZDb.SaveChangesAsync();
+            return regionDM;
+        }
+
+        public async Task<Region?> DeleteRegion(Guid id)
         {
             var region = await NZDb.Regions.FirstOrDefaultAsync(x => x.Id == id);
-
-            region.Code = updateRegion.Code;
-            region.Name = updateRegion.Name;
-            region.RegionImageURL = updateRegion.RegionImageURL;
-
+            if(region == null)
+            {
+                return null;
+            }
+            NZDb.Remove(region);
             await NZDb.SaveChangesAsync();
             return region;
         }
