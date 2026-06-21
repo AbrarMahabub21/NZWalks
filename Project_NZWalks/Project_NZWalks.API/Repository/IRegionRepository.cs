@@ -6,8 +6,9 @@ namespace Project_NZWalks.API.Repository
     public interface IRegionRepository
     {
       Task<List<Region>> getAllAsync();
-      Task<Region> getByIdAsync(Guid id);
-      Task<Region> CreateRegion(AddRegionRequestDto addRegion);
-      Task<Region> UpdateRegion(Guid id, UpdateRegionRequestDto updateRegion);
+      Task<Region?> getByIdAsync(Guid id);
+      Task<Region> CreateRegion(Region region);
+      Task<Region?> UpdateRegion(Guid id, Region region);
+      Task<Region?> DeleteRegion(Guid id);
     }
 }

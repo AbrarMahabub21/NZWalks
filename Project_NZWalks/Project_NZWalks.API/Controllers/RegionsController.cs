@@ -74,8 +74,13 @@ namespace Project_NZWalks.API.Controllers
         public async Task<IActionResult> create([FromBody] AddRegionRequestDto addRegionRequestDto)
         {
 
-            var regionDM = await regionRepository.CreateRegion(addRegionRequestDto);
-
+            var regionDM = new Region
+            {
+                Code = addRegionRequestDto.Code,
+                Name = addRegionRequestDto.Name,
+                RegionImageURL = addRegionRequestDto.RegionImageURL
+            };
+            regionDM = await regionRepository.CreateRegion(regionDM);
             // Revert to DTO
             var regionDTO = new RegionDto
             {
@@ -92,19 +97,26 @@ namespace Project_NZWalks.API.Controllers
         [Route("{id:guid}")]
         public async Task<IActionResult> update([FromRoute] Guid id, [FromBody] UpdateRegionRequestDto updateRegionRequestDto)
         {
-            var regionDB = await regionRepository.UpdateRegion(id, updateRegionRequestDto);
 
+            var regionDM = new Region
+            {
+                Code = updateRegionRequestDto.Code,
+                Name = updateRegionRequestDto.Name,
+                RegionImageURL = updateRegionRequestDto.RegionImageURL
+            };
 
-            if(regionDB == null)
+            regionDM = await regionRepository.UpdateRegion(id, regionDM);
+
+            if(regionDM == null)
             {
                 return NotFound();
             }
 
             var regionDTO = new RegionDto
             {
-                Code = regionDB.Code,
-                Name = regionDB.Name,
-                RegionImageURL = regionDB.RegionImageURL
+                Code = regionDM.Code,
+                Name = regionDM.Name,
+                RegionImageURL = regionDM.RegionImageURL
             };
 
             return Ok(regionDTO);
@@ -115,15 +127,13 @@ namespace Project_NZWalks.API.Controllers
         [Route("{id:Guid}")]
         public async Task<IActionResult> delete([FromRoute] Guid id)
         {
-            var region = await NZDb.Regions.FirstOrDefaultAsync(x => x.Id == id);
+            var region = await regionRepository.DeleteRegion(id);
+
+
             if(region == null)
             {
                 return NotFound();
             }
-
-            NZDb.Remove(region);
-            await NZDb.SaveChangesAsync();
-
             return NoContent();
         }
     }
