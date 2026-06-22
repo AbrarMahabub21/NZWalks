@@ -160,3 +160,4 @@ C:\Users\User\Desktop\NZWalks\Project_NZWalks\Project_NZWalks.API\obj\Debug\net1
 C:\Users\User\Desktop\NZWalks\Project_NZWalks\Project_NZWalks.API\obj\Debug\net10.0\Project_NZWalks.API.pdb
 C:\Users\User\Desktop\NZWalks\Project_NZWalks\Project_NZWalks.API\obj\Debug\net10.0\Project_NZWalks.API.genruntimeconfig.cache
 C:\Users\User\Desktop\NZWalks\Project_NZWalks\Project_NZWalks.API\obj\Debug\net10.0\ref\Project_NZWalks.API.dll
+C:\Users\User\Desktop\NZWalks\Project_NZWalks\Project_NZWalks.API\bin\Debug\net10.0\AutoMapper.dll

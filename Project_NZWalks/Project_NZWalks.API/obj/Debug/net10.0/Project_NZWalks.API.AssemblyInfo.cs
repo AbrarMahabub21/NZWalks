@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Project_NZWalks.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+570e5f8f769c07c9ac5f6340752ce108606cd78d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb1ca93c6d64343c7e6e8c080b43b8513d347a0f")]
 [assembly: System.Reflection.AssemblyProductAttribute("Project_NZWalks.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Project_NZWalks.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
