@@ -1,0 +1,60 @@
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Project_NZWalks.API.Mappings;
+using Project_NZWalks.API.Models.Domain;
+using Project_NZWalks.API.Models.DTO;
+using Project_NZWalks.API.Repository;
+
+namespace Project_NZWalks.API.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class WalksController : ControllerBase
+    {
+
+        private readonly IMapper _mapper;
+        private readonly IWalkRepository walkRepository;
+        public WalksController(IMapper mapper, IWalkRepository walkRepository)
+        {
+            _mapper = mapper;
+            this.walkRepository = walkRepository;
+        }
+
+        //Create Walks
+        // A post method
+        [HttpPost]
+       public async Task<IActionResult> CreateWalk([FromBody] AddWalkRequestDto addWalkRequestDto)
+        {
+            //WalkDTO to Walk
+            var walkDM = _mapper.Map<Walk>(addWalkRequestDto);
+
+            var walk = await walkRepository.CreateAsync(walkDM);
+
+            //walk to walkDTO again
+            var walkDTO = _mapper.Map<WalkDto>(walk);
+
+            return Ok(walkDTO);
+            
+        }
+
+        //Get All Walks
+        // A Get Method
+
+        [HttpGet]
+        public async Task<IActionResult> GetWalks()
+        {
+            //Get Values from DB through Repository
+            var allWalks = await walkRepository.GetWalkAsync();
+
+            // Mapping to DTO
+            var walksDTO = _mapper.Map<List<WalkDto>>(allWalks);
+
+            return Ok(walksDTO);
+        }
+
+
+    }
+
+
+}

@@ -24,6 +24,8 @@ builder.Services.AddScoped<IRegionRepository, SQLRegionRepository>();
 //Injecting AutoMapper
 builder.Services.AddAutoMapper(cfg=> cfg.AddProfile<AutoMapperProfiles>());
 
+//Injecting WalkRepository
+builder.Services.AddScoped<IWalkRepository, SQLWalkRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
