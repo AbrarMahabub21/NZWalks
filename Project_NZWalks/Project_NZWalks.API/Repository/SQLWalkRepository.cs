@@ -25,5 +25,12 @@ namespace Project_NZWalks.API.Repository
 
             return allWalks;
         }
+
+        public async Task<Walk> WalkByIDAsync(Guid id)
+        {
+            var walk = await NZDb.Walks.FirstOrDefaultAsync(x=>x.Id == id);
+
+            return walk;
+        }
     }
 }
