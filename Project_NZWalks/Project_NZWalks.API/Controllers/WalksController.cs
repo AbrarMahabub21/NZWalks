@@ -24,7 +24,7 @@ namespace Project_NZWalks.API.Controllers
         //Create Walks
         // A post method
         [HttpPost]
-       public async Task<IActionResult> CreateWalk([FromBody] AddWalkRequestDto addWalkRequestDto)
+        public async Task<IActionResult> CreateWalk([FromBody] AddWalkRequestDto addWalkRequestDto)
         {
             //WalkDTO to Walk
             var walkDM = _mapper.Map<Walk>(addWalkRequestDto);
@@ -35,7 +35,7 @@ namespace Project_NZWalks.API.Controllers
             var walkDTO = _mapper.Map<WalkDto>(walk);
 
             return Ok(walkDTO);
-            
+
         }
 
         //Get All Walks
@@ -53,6 +53,18 @@ namespace Project_NZWalks.API.Controllers
             return Ok(walksDTO);
         }
 
+        //Get a specific walk by it's id
+        //A GET Method
+        [HttpGet]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> GetWalkByID([FromRoute] Guid id)
+        {
+            var walk = await walkRepository.WalkByIDAsync(id);
+
+            var walkDTO = _mapper.Map<WalkDto>(walk);
+
+            return Ok(walkDTO);
+        }
 
     }
 
