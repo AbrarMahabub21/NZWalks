@@ -11,20 +11,12 @@
       "RelativeMoniker": "D:0:0:{C23EC89F-F914-210E-85A8-598B8F6C7244}|Project_NZWalks.API\\Project_NZWalks.API.csproj|solutionrelative:project_nzwalks.api\\repository\\sqlwalkrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C23EC89F-F914-210E-85A8-598B8F6C7244}|Project_NZWalks.API\\Project_NZWalks.API.csproj|c:\\users\\user\\desktop\\nzwalks\\project_nzwalks\\project_nzwalks.api\\repository\\iwalkrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C23EC89F-F914-210E-85A8-598B8F6C7244}|Project_NZWalks.API\\Project_NZWalks.API.csproj|solutionrelative:project_nzwalks.api\\repository\\iwalkrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C23EC89F-F914-210E-85A8-598B8F6C7244}|Project_NZWalks.API\\Project_NZWalks.API.csproj|c:\\users\\user\\desktop\\nzwalks\\project_nzwalks\\project_nzwalks.api\\controllers\\regionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C23EC89F-F914-210E-85A8-598B8F6C7244}|Project_NZWalks.API\\Project_NZWalks.API.csproj|solutionrelative:project_nzwalks.api\\controllers\\regionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C23EC89F-F914-210E-85A8-598B8F6C7244}|Project_NZWalks.API\\Project_NZWalks.API.csproj|c:\\users\\user\\desktop\\nzwalks\\project_nzwalks\\project_nzwalks.api\\mappings\\automapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C23EC89F-F914-210E-85A8-598B8F6C7244}|Project_NZWalks.API\\Project_NZWalks.API.csproj|solutionrelative:project_nzwalks.api\\mappings\\automapperprofiles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C23EC89F-F914-210E-85A8-598B8F6C7244}|Project_NZWalks.API\\Project_NZWalks.API.csproj|c:\\users\\user\\desktop\\nzwalks\\project_nzwalks\\project_nzwalks.api\\repository\\sqlregionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C23EC89F-F914-210E-85A8-598B8F6C7244}|Project_NZWalks.API\\Project_NZWalks.API.csproj|solutionrelative:project_nzwalks.api\\repository\\sqlregionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C23EC89F-F914-210E-85A8-598B8F6C7244}|Project_NZWalks.API\\Project_NZWalks.API.csproj|c:\\users\\user\\desktop\\nzwalks\\project_nzwalks\\project_nzwalks.api\\repository\\iwalkrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C23EC89F-F914-210E-85A8-598B8F6C7244}|Project_NZWalks.API\\Project_NZWalks.API.csproj|solutionrelative:project_nzwalks.api\\repository\\iwalkrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,70 +26,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SQLWalkRepository.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\NZWalks\\Project_NZWalks\\Project_NZWalks.API\\Repository\\SQLWalkRepository.cs",
-              "RelativeDocumentMoniker": "Project_NZWalks.API\\Repository\\SQLWalkRepository.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\NZWalks\\Project_NZWalks\\Project_NZWalks.API\\Repository\\SQLWalkRepository.cs",
-              "RelativeToolTip": "Project_NZWalks.API\\Repository\\SQLWalkRepository.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAqwCAAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-24T14:57:49.21Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "RegionsController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\NZWalks\\Project_NZWalks\\Project_NZWalks.API\\Controllers\\RegionsController.cs",
-              "RelativeDocumentMoniker": "Project_NZWalks.API\\Controllers\\RegionsController.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\NZWalks\\Project_NZWalks\\Project_NZWalks.API\\Controllers\\RegionsController.cs",
-              "RelativeToolTip": "Project_NZWalks.API\\Controllers\\RegionsController.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-24T14:24:30.955Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "SQLRegionRepository.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\NZWalks\\Project_NZWalks\\Project_NZWalks.API\\Repository\\SQLRegionRepository.cs",
               "RelativeDocumentMoniker": "Project_NZWalks.API\\Repository\\SQLRegionRepository.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\NZWalks\\Project_NZWalks\\Project_NZWalks.API\\Repository\\SQLRegionRepository.cs",
               "RelativeToolTip": "Project_NZWalks.API\\Repository\\SQLRegionRepository.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAA6wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-24T14:18:38.707Z"
+              "WhenOpened": "2026-06-24T14:18:38.707Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "IWalkRepository.cs",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\NZWalks\\Project_NZWalks\\Project_NZWalks.API\\Repository\\IWalkRepository.cs",
               "RelativeDocumentMoniker": "Project_NZWalks.API\\Repository\\IWalkRepository.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\NZWalks\\Project_NZWalks\\Project_NZWalks.API\\Repository\\IWalkRepository.cs",
               "RelativeToolTip": "Project_NZWalks.API\\Repository\\IWalkRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-24T14:12:32.85Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AutoMapperProfiles.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\NZWalks\\Project_NZWalks\\Project_NZWalks.API\\Mappings\\AutoMapperProfiles.cs",
-              "RelativeDocumentMoniker": "Project_NZWalks.API\\Mappings\\AutoMapperProfiles.cs",
-              "ToolTip": "C:\\Users\\User\\Desktop\\NZWalks\\Project_NZWalks\\Project_NZWalks.API\\Mappings\\AutoMapperProfiles.cs",
-              "RelativeToolTip": "Project_NZWalks.API\\Mappings\\AutoMapperProfiles.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-24T14:00:42.467Z",
               "EditorCaption": ""
             },
             {
@@ -108,9 +62,22 @@
               "RelativeDocumentMoniker": "Project_NZWalks.API\\Controllers\\WalksController.cs",
               "ToolTip": "C:\\Users\\User\\Desktop\\NZWalks\\Project_NZWalks\\Project_NZWalks.API\\Controllers\\WalksController.cs",
               "RelativeToolTip": "Project_NZWalks.API\\Controllers\\WalksController.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAA2wDoAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAAAF8AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-06-24T13:54:31.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SQLWalkRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\NZWalks\\Project_NZWalks\\Project_NZWalks.API\\Repository\\SQLWalkRepository.cs",
+              "RelativeDocumentMoniker": "Project_NZWalks.API\\Repository\\SQLWalkRepository.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\NZWalks\\Project_NZWalks\\Project_NZWalks.API\\Repository\\SQLWalkRepository.cs",
+              "RelativeToolTip": "Project_NZWalks.API\\Repository\\SQLWalkRepository.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAqwEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-24T14:57:49.21Z",
               "EditorCaption": ""
             }
           ]

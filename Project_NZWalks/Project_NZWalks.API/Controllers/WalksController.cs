@@ -66,6 +66,35 @@ namespace Project_NZWalks.API.Controllers
             return Ok(walkDTO);
         }
 
+        //It will update a specific walk
+        //A put method
+        [HttpPut]
+        [Route("{id:guid}")]
+        public async Task<IActionResult> UpdateWalk([FromRoute]Guid id, [FromBody] UpdateWalkRequestDto updateWalkRequestDto)
+        {
+            var walkDM = _mapper.Map<Walk>(updateWalkRequestDto);
+            var walk = await walkRepository.UpdateWalkAsync(id, walkDM);
+
+            var walkDTO = _mapper.Map<WalkDto>(walk);
+
+            return Ok(walkDTO);
+        }
+
+
+        //It will delete a specific walk
+        [HttpDelete]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> DeleteWalk(Guid id)
+        {
+            var walk = await walkRepository.DeleteWalkAsync(id);
+
+            if(walk == null)
+            {
+                return NotFound();
+            }
+               
+          return NoContent();
+        } 
     }
 
 
