@@ -35,7 +35,7 @@ namespace Project_NZWalks.API.Repository
 
         public async Task<List<Walk>> GetWalkAsync()
         {
-            var allWalks = await NZDb.Walks.ToListAsync();
+            var allWalks = await NZDb.Walks.Include("Difficulty").Include("Region").ToListAsync();
 
             return allWalks;
         }
