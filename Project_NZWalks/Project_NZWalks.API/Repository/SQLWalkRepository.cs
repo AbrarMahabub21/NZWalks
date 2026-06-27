@@ -42,7 +42,7 @@ namespace Project_NZWalks.API.Repository
 
         public async Task<Walk?> UpdateWalkAsync(Guid id, Walk walk)
         {
-            var walkDM = await NZDb.Walks.FirstOrDefaultAsync(x => x.Id == id);
+            var walkDM = await NZDb.Walks.Include("Difficulty").Include("Region").FirstOrDefaultAsync(x => x.Id == id);
             if(walkDM == null)
             {
                 return null;
@@ -62,8 +62,8 @@ namespace Project_NZWalks.API.Repository
 
         public async Task<Walk?> WalkByIDAsync(Guid id)
         {
-            
-            var walk = await NZDb.Walks.FirstOrDefaultAsync(x=>x.Id == id);
+
+            var walk = await NZDb.Walks.Include("Difficulty").Include("Region").FirstOrDefaultAsync(x => x.Id == id);
             if (walk == null)
             {
                 return null;
