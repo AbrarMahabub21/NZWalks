@@ -14,12 +14,11 @@ namespace Project_NZWalks.API.Controllers
     [ApiController]
     public class RegionsController : ControllerBase
     {
-        private readonly NZWalksDbContext NZDb;
+        
         private readonly IRegionRepository regionRepository;
         private readonly IMapper _mapper;
-        public RegionsController(NZWalksDbContext NZDb, IRegionRepository regionRepository, IMapper mapper)
+        public RegionsController(IRegionRepository regionRepository, IMapper mapper)
         {
-            this.NZDb = NZDb;
             this.regionRepository = regionRepository;
             _mapper = mapper;
         }
@@ -62,14 +61,22 @@ namespace Project_NZWalks.API.Controllers
         [HttpPost]
         public async Task<IActionResult> create([FromBody] AddRegionRequestDto addRegionRequestDto)
         {
-            // DTO to DM
-            var regionDM = _mapper.Map<Region>(addRegionRequestDto);
-            regionDM = await regionRepository.CreateRegion(regionDM);
+            if (ModelState.IsValid)
+            {
+                // DTO to DM
+                var regionDM = _mapper.Map<Region>(addRegionRequestDto);
+                regionDM = await regionRepository.CreateRegion(regionDM);
 
-            // Revert to DTO
-            var regionDTO = _mapper.Map<RegionDto>(regionDM);
+                // Revert to DTO
+                var regionDTO = _mapper.Map<RegionDto>(regionDM);
 
-            return CreatedAtAction(nameof(getById), new { id = regionDM.Id }, regionDTO);
+                return CreatedAtAction(nameof(getById), new { id = regionDM.Id }, regionDTO);
+            }
+
+            else
+            {
+                return BadRequest(ModelState);
+            }
         }
 
         //UPDATE A REGION
@@ -77,19 +84,27 @@ namespace Project_NZWalks.API.Controllers
         [Route("{id:guid}")]
         public async Task<IActionResult> update([FromRoute] Guid id, [FromBody] UpdateRegionRequestDto updateRegionRequestDto)
         {
-
-            var regionDM = _mapper.Map<Region>(updateRegionRequestDto);
-
-            regionDM = await regionRepository.UpdateRegion(id, regionDM);
-
-            if(regionDM == null)
+            if (ModelState.IsValid)
             {
-                return NotFound();
+                var regionDM = _mapper.Map<Region>(updateRegionRequestDto);
+
+                regionDM = await regionRepository.UpdateRegion(id, regionDM);
+
+                if (regionDM == null)
+                {
+                    return NotFound();
+                }
+
+                var regionDTO = _mapper.Map<RegionDto>(regionDM);
+
+                return Ok(regionDTO);
             }
 
-            var regionDTO = _mapper.Map<RegionDto>(regionDM);
-
-            return Ok(regionDTO);
+            else
+            {
+                return BadRequest(ModelState);
+            }
+            
         }
 
         //DELETE A REGION
