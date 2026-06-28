@@ -5,7 +5,7 @@ using Project_NZWalks.API.Mappings;
 using Project_NZWalks.API.Models.Domain;
 using Project_NZWalks.API.Models.DTO;
 using Project_NZWalks.API.Repository;
-
+using Project_NZWalks.API.ActionModelFilter;
 namespace Project_NZWalks.API.Controllers
 {
     [Route("api/[controller]")]
@@ -24,6 +24,7 @@ namespace Project_NZWalks.API.Controllers
         //Create Walks
         // A post method
         [HttpPost]
+        [ValidateModelAttributes]
         public async Task<IActionResult> CreateWalk([FromBody] AddWalkRequestDto addWalkRequestDto)
         {
             //WalkDTO to Walk
@@ -70,6 +71,7 @@ namespace Project_NZWalks.API.Controllers
         //A put method
         [HttpPut]
         [Route("{id:guid}")]
+        [ValidateModelAttributes]
         public async Task<IActionResult> UpdateWalk([FromRoute]Guid id, [FromBody] UpdateWalkRequestDto updateWalkRequestDto)
         {
             var walkDM = _mapper.Map<Walk>(updateWalkRequestDto);

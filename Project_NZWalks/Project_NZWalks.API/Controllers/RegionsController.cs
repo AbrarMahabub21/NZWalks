@@ -6,7 +6,7 @@ using Project_NZWalks.API.Data;
 using Project_NZWalks.API.Models.Domain;
 using Project_NZWalks.API.Models.DTO;
 using Project_NZWalks.API.Repository;
-
+using Project_NZWalks.API.ActionModelFilter;
 namespace Project_NZWalks.API.Controllers
 {
     // api/Regions
@@ -59,6 +59,7 @@ namespace Project_NZWalks.API.Controllers
 
         // CREATE A NEW REGION
         [HttpPost]
+        [ValidateModelAttributes]
         public async Task<IActionResult> create([FromBody] AddRegionRequestDto addRegionRequestDto)
         {
             if (ModelState.IsValid)
@@ -82,10 +83,11 @@ namespace Project_NZWalks.API.Controllers
         //UPDATE A REGION
         [HttpPut]
         [Route("{id:guid}")]
+        [ValidateModelAttributes]
         public async Task<IActionResult> update([FromRoute] Guid id, [FromBody] UpdateRegionRequestDto updateRegionRequestDto)
         {
-            if (ModelState.IsValid)
-            {
+
+            
                 var regionDM = _mapper.Map<Region>(updateRegionRequestDto);
 
                 regionDM = await regionRepository.UpdateRegion(id, regionDM);
@@ -98,12 +100,7 @@ namespace Project_NZWalks.API.Controllers
                 var regionDTO = _mapper.Map<RegionDto>(regionDM);
 
                 return Ok(regionDTO);
-            }
-
-            else
-            {
-                return BadRequest(ModelState);
-            }
+            
             
         }
 
