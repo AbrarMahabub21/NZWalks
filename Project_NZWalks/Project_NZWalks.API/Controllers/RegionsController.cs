@@ -26,10 +26,10 @@ namespace Project_NZWalks.API.Controllers
         //get All regions
         // GET: http://localhost/portnumber/api/Regions
         [HttpGet]
-        public async Task<IActionResult> getAll()
+        public async Task<IActionResult> getAll([FromQuery] string? filterOn, [FromQuery] string? filterQuery)
         {
             // Getting data from Repository
-            var regionDB = await regionRepository.getAllAsync();
+            var regionDB = await regionRepository.getAllAsync(filterOn,filterQuery);
 
             // DM to DTO mapping
             var regions = _mapper.Map<List<RegionDto>>(regionDB);
