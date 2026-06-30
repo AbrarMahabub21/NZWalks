@@ -33,7 +33,7 @@ namespace Project_NZWalks.API.Repository
             return walk;
         }
 
-        public async Task<List<Walk>> GetWalkAsync(string?filterOn=null, string?filterQuery=null, string?sortBy=null, bool isAscending= true)
+        public async Task<List<Walk>> GetWalkAsync(string?filterOn=null, string?filterQuery=null, string?sortBy=null, bool isAscending= true, int pageNumber = 1, int pageSize = 10)
         {
             var allWalks = NZDb.Walks.Include("Difficulty").Include("Region").AsQueryable();
             if(string.IsNullOrWhiteSpace(filterOn) == false && string.IsNullOrWhiteSpace(filterQuery) == false)
@@ -60,7 +60,10 @@ namespace Project_NZWalks.API.Repository
                 }
             }
 
-            return await allWalks.ToListAsync();
+            //pagination
+            var skipResults = (pageNumber - 1) * pageSize;
+
+            return await allWalks.Skip(skipResults).Take(pageSize).ToListAsync();
         }
 
         public async Task<Walk?> UpdateWalkAsync(Guid id, Walk walk)
