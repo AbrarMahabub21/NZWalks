@@ -41,12 +41,18 @@ namespace Project_NZWalks.API.Controllers
 
         //Get All Walks
         // A Get Method
-
+        //api/walks?filterOn=name&filterQuery=Track
+        //api/walks?filterOn=name&filterQuery=Track&sortBy=name&isAscending=True
         [HttpGet]
-        public async Task<IActionResult> GetWalks()
+        public async Task<IActionResult> GetWalks(
+            [FromQuery] string?filterOn,
+            [FromQuery] string? filterQuery,
+            [FromQuery] string? sortBy,
+            [FromQuery] bool isAscending
+            )
         {
             //Get Values from DB through Repository
-            var allWalks = await walkRepository.GetWalkAsync();
+            var allWalks = await walkRepository.GetWalkAsync(filterOn,filterQuery,sortBy,isAscending);
 
             // Mapping to DTO
             var walksDTO = _mapper.Map<List<WalkDto>>(allWalks);

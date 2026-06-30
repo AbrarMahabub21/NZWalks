@@ -14,11 +14,18 @@ namespace Project_NZWalks.API.Repository
             this.NZDb = NZDb;
         }
          
-        public async Task<List<Region>> getAllAsync()
+        public async Task<List<Region>> getAllAsync(string? filterOn=null, string? filterQuery=null)
         {
-            var regions =  await NZDb.Regions.ToListAsync();
+            var regions =  NZDb.Regions.AsQueryable();
+            if(string.IsNullOrWhiteSpace(filterOn) == false && string.IsNullOrWhiteSpace(filterQuery) == false)
+            {
+                if (filterOn.Equals("name",StringComparison.OrdinalIgnoreCase))
+                {
+                    regions = regions.Where(x => x.Name.Contains(filterQuery));
+                }
+            }
 
-            return regions;
+            return await regions.ToListAsync();
         }
 
         public async Task<Region?> getByIdAsync(Guid id)

@@ -33,11 +33,34 @@ namespace Project_NZWalks.API.Repository
             return walk;
         }
 
-        public async Task<List<Walk>> GetWalkAsync()
+        public async Task<List<Walk>> GetWalkAsync(string?filterOn=null, string?filterQuery=null, string?sortBy=null, bool isAscending= true)
         {
-            var allWalks = await NZDb.Walks.Include("Difficulty").Include("Region").ToListAsync();
+            var allWalks = NZDb.Walks.Include("Difficulty").Include("Region").AsQueryable();
+            if(string.IsNullOrWhiteSpace(filterOn) == false && string.IsNullOrWhiteSpace(filterQuery) == false)
+            {
 
-            return allWalks;
+                //Filtering
+                if (filterOn.Equals("name", StringComparison.OrdinalIgnoreCase))
+                {
+                    allWalks = allWalks.Where(x => x.Name.Contains(filterQuery));
+                }
+            }
+
+            //Sorting
+            if (string.IsNullOrWhiteSpace(sortBy) == false)
+            {
+                if (sortBy.Equals("name", StringComparison.OrdinalIgnoreCase))
+                {
+                    allWalks = (isAscending) ? allWalks.OrderBy(x => x.Name) : allWalks.OrderByDescending(x => x.Name);
+                }
+
+                else if (sortBy.Equals("length", StringComparison.OrdinalIgnoreCase))
+                {
+                    allWalks = (isAscending) ? allWalks.OrderBy(x => x.LengthInKM) : allWalks.OrderByDescending(x => x.LengthInKM);
+                }
+            }
+
+            return await allWalks.ToListAsync();
         }
 
         public async Task<Walk?> UpdateWalkAsync(Guid id, Walk walk)
