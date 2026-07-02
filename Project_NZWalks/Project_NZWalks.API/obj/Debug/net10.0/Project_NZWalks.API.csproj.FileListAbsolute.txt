@@ -273,3 +273,4 @@ C:\Users\User\Desktop\NZWalks\Project_NZWalks\Project_NZWalks.API\bin\Debug\net1
 C:\Users\User\Desktop\NZWalks\Project_NZWalks\Project_NZWalks.API\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\User\Desktop\NZWalks\Project_NZWalks\Project_NZWalks.API\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Scripting.resources.dll
 C:\Users\User\Desktop\NZWalks\Project_NZWalks\Project_NZWalks.API\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Scripting.resources.dll
+C:\Users\User\Desktop\NZWalks\Project_NZWalks\Project_NZWalks.API\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll

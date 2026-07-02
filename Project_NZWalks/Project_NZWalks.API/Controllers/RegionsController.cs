@@ -7,11 +7,13 @@ using Project_NZWalks.API.Models.Domain;
 using Project_NZWalks.API.Models.DTO;
 using Project_NZWalks.API.Repository;
 using Project_NZWalks.API.ActionModelFilter;
+using Microsoft.AspNetCore.Authorization;
 namespace Project_NZWalks.API.Controllers
 {
     // api/Regions
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class RegionsController : ControllerBase
     {
         
