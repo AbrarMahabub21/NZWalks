@@ -1,10 +1,13 @@
+
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Project_NZWalks.API.Data;
 using Project_NZWalks.API.Mappings;
 using Project_NZWalks.API.Repository;
+using Swashbuckle.AspNetCore.Swagger;
 using System.Reflection;
-using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
