@@ -35,7 +35,7 @@ namespace Project_NZWalks.API.Data
                     Id = WriterRoleId,
                     ConcurrencyStamp =WriterRoleId,
                     Name = "WriterRole",
-                    NormalizedName = "WriteRole".ToUpper()
+                    NormalizedName = "WriterRole".ToUpper()
                 }
             };
             builder.Entity<IdentityRole>().HasData(roles);
