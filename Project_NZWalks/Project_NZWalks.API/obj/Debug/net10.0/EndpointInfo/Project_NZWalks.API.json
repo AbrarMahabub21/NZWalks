@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.4",
   "info": {
-    "title": "Project_NZWalks.API",
-    "version": "1.0"
+    "title": "NZ Walks API",
+    "version": "v1"
   },
   "paths": {
     "/api/Auth/register": {
@@ -629,8 +629,21 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "Enter your JWT token",
+        "name": "Authorization",
+        "in": "header"
+      }
     }
   },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ],
   "tags": [
     {
       "name": "Auth"

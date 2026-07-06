@@ -48,7 +48,7 @@ namespace Project_NZWalks.API.Controllers
                 }
             }
 
-            return BadRequest("Something went wrong!! Please Try again.");
+            return BadRequest(NewUser.Errors);
             }
 
 
