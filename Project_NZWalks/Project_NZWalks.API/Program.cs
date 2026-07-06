@@ -29,14 +29,15 @@ builder.Services.AddDbContext<NZWalksDbContext>
 builder.Services.AddDbContext<NZWalksAuthDBContext>
     (option=> option.UseSqlServer(builder.Configuration.GetConnectionString("NZWalksAuthConnectionString")));
 
-//Injecting RegionalRepository
+//Injecting Repository
 builder.Services.AddScoped<IRegionRepository, SQLRegionRepository>();
+builder.Services.AddScoped<IWalkRepository, SQLWalkRepository>();
+builder.Services.AddScoped<ITokenRepository, JWTToken>();
 
 //Injecting AutoMapper
 builder.Services.AddAutoMapper(cfg=> cfg.AddProfile<AutoMapperProfiles>());
 
-//Injecting WalkRepository
-builder.Services.AddScoped<IWalkRepository, SQLWalkRepository>();
+
 
 builder.Services.AddIdentityCore<IdentityUser>()
     .AddRoles<IdentityRole>()

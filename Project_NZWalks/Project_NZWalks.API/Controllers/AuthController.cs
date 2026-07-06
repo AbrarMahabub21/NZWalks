@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Project_NZWalks.API.Models.DTO;
+using Project_NZWalks.API.Repository;
 
 namespace Project_NZWalks.API.Controllers
 {
@@ -10,10 +11,12 @@ namespace Project_NZWalks.API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly UserManager<IdentityUser> userManager;
+        private readonly ITokenRepository tokenRepository;
 
-        public AuthController(UserManager<IdentityUser> userManager)
+        public AuthController(UserManager<IdentityUser> userManager, ITokenRepository tokenRepository)
         {
             this.userManager = userManager;
+            this.tokenRepository = tokenRepository;
         }
 
         //User registration
@@ -63,9 +66,18 @@ namespace Project_NZWalks.API.Controllers
                 var checkPassword = await userManager.CheckPasswordAsync(User, userLoginDto.Password);
                 if (checkPassword)
                 {
-                    //Provide a Token
+                    var roles = await userManager.GetRolesAsync(User);
+                    if(roles != null)
+                    {
+                        //Provide a Token
+                        var JWTtoken = tokenRepository.CreateJWTToken(User, roles.ToList());
+                        var response = new LoginResponseDto
+                        {
+                            jwttoken = JWTtoken
+                        };
 
-                    return Ok("User Found!");
+                        return Ok(response);
+                    }  
                 }
             }
             return BadRequest("User not Found! Please provide proper information.");
