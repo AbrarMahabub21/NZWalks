@@ -59,12 +59,12 @@ builder.Services.AddDbContext<NZWalksAuthDBContext>
 builder.Services.AddScoped<IRegionRepository, SQLRegionRepository>();
 builder.Services.AddScoped<IWalkRepository, SQLWalkRepository>();
 builder.Services.AddScoped<ITokenRepository, JWTToken>();
-
+builder.Services.AddScoped<IImageRepository, LocalImageUploadRepository>();
 //Injecting AutoMapper
 builder.Services.AddAutoMapper(cfg=> cfg.AddProfile<AutoMapperProfiles>());
 
 
-
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddIdentityCore<IdentityUser>()
     .AddRoles<IdentityRole>()
     .AddTokenProvider<DataProtectorTokenProvider<IdentityUser>>("NZWalks")
